@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // const data = await fetch('/api/dinosaurs');
+    // const dinosaurs = await data.json();
+    // console.log(dinosaurs)
+    fetch('/api/dinosaurs')
+      .then((data)=>{
+        return data.json()
+      })
+      .then(res=>{
+        console.log(res)
+      })
+  },[]);
 
   return (
     <>
